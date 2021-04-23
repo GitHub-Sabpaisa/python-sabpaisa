@@ -1,7 +1,7 @@
 # python-sabpaisa
 
 
-This package is used to integrate sabpaisa payment gateway with your react native application.
+This package is used to integrate sabpaisa payment gateway with your python application.
 
 ## Installation
 
