@@ -5,7 +5,7 @@ This package is used to integrate sabpaisa payment gateway with your python appl
 
 ## Installation
 
-You can add SabPaisa SDK to your existing React Native project using following npm command: -
+You can add SabPaisa SDK to your existing python project using following pip command: -
 
 ```sh
 pip install sabpaisa
