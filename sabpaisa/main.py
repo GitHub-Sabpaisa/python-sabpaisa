@@ -2,13 +2,19 @@ from . import auth
 LIVE = ""
 TESTING ="https://uatsp.sabpaisa.in/SabPaisa/sabPaisaInit"
 class Sabpaisa:
-    def __init__(self,auth=None,payerAddress="",payerEmail="",payerContact="",payerLastName="",payerFirstName="",URLfailure="",spURL="",spDomain=TESTING,username="",password="",txnId="",clientCode="",authKey="",authIV="",txnAmt="",tnxId="",URLsuccess="",email=""):
+    def __init__(self,programId="",param1="",param2="",param3="",param4="",udfs=["","","","","","","","","",'','','','','','',''],auth=None,payerAddress="",payerEmail="",payerContact="",payerLastName="",payerFirstName="",URLfailure="",spURL="",spDomain=TESTING,username="",password="",txnId="",clientCode="",authKey="",authIV="",txnAmt="",tnxId="",URLsuccess="",email=""):
         self.auth=auth
         self.payerAddress=payerAddress
+        self.programId=programId
         self.payerEmail=payerEmail
         self.payerContact=payerContact
         self.payerLastName=payerLastName
         self.txnId=tnxId
+        self.param1=param1
+        self.param2=param2
+        self.param3=param3
+        self.param4=param4
+        self.udfs=udfs
         self.email=email
         self.payerFirstName=payerFirstName
         self.URLfailure=URLfailure
@@ -22,7 +28,7 @@ class Sabpaisa:
         self.clientCode=clientCode
         
     def genrateLink(self):
-          self.spURL = "?clientName=" + self.clientCode + "&usern=" + self.username + "&pass=" + self.password +"&amt=" +self.txnAmt + "&txnId=" + self.txnId + "&firstName=" + self.payerFirstName + "&lstName=" + self.payerLastName+"&contactNo=" + self.payerContact + "&Email=" + self.payerEmail + "&Add=" + self.payerAddress + "&ru=" + self.URLsuccess + "&failureURL=" + self.URLfailure
+          self.spURL = "?clientName=" + self.clientCode + "&usern=" + self.username + "&pass=" + self.password +"&amt=" +self.txnAmt + "&txnId=" + self.txnId + "&firstName=" + self.payerFirstName + "&lstName=" + self.payerLastName+"&contactNo=" + self.payerContact + "&Email=" + self.payerEmail + "&Add=" + self.payerAddress + "&ru=" + self.URLsuccess + "&failureURL=" + self.URLfailure+"&programId="+self.programId+"&param1="+self.param1+"&param2="+self.param2+"&param3"+self.param3+"&param4"+self.param4+"&udf5"+self.udfs[0]+"&udf6"+self.udfs[1]+"&udf7"+self.udfs[2]+"&udf8"+self.udfs[3]+"&udf9"+self.udfs[4]+"&udf10"+self.udfs[5]+"&udf11"+self.udfs[6]+"&udf12"+self.udfs[7]+"&udf13"+self.udfs[8]+"&udf14"+self.udfs[9]+"&udf15"+self.udfs[10]+"&udf16"+self.udfs[11]+"&udf17"+self.udfs[12]+"&udf18"+self.udfs[13]+"&udf19"+self.udfs[14]+"&udf20"+self.udfs[15]
           authobj = auth.AESCipher(self.authKey,self.authIV)
           self.spURL = authobj.encrypt(self.spURL)
           self.spURL=str(self.spURL)
